@@ -1,14 +1,18 @@
 pipeline{
 	agent any
 
-	stages{
-		stage('checkout'){
-			steps{	
-				sh "Brnach name ${params.Branch_name}"
-				echo "Cloning repo from github"
-				checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Rohit2k00/Spring-app.git']])
-			}
-		}
+      stages {
+        stage('Checkout') {
+          steps {
+            echo "Branch name: ${params.Branch_name}"
+            echo "Cloning repo from GitHub"
+            checkout scmGit(branches: [[name: "${params.Branch_name}"]], 
+                            extensions: [], 
+                            userRemoteConfigs: [[url: 'https://github.com/Rohit2k00/Spring-app.git']])
+        }
+    }
+}
+
 
                 stage('Clean'){ 
                         steps{  
