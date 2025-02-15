@@ -4,7 +4,7 @@ pipeline{
 	stages{
 		stage('checkout'){
 			steps{	
-				sh "sleep ${params.Branch_name}"
+				sh "Brnach name ${params.Branch_name}"
 				echo "Cloning repo from github"
 				checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Rohit2k00/Spring-app.git']])
 			}
